@@ -1,0 +1,15 @@
+{
+  "name": "provision/pages",
+  "description": "ProVision Administration Pages module",
+  "keywords": [
+    "provision",
+    "module",
+    "pages"
+  ],
+  "require": {
+    "provision/administration": "dev-master"
+  },
+  "config": {
+    "preferred-install": "dist"
+  }
+}
