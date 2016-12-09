@@ -3,9 +3,11 @@
 namespace App\Modules\Pages\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Model;
+use ProVision\Administration\AdminModelTranslations;
 
-class PagesTranslation extends Model {
+class PagesTranslation extends AdminModelTranslations {
+
+    use Sluggable;
 
     public $timestamps = false;
 
@@ -18,16 +20,6 @@ class PagesTranslation extends Model {
         'slug'
     ];
 
-    public function customizeSlugEngine($engine) {
-        $engine->addRule('ъ', 'a');
-        $engine->addRule('щ', 'sht');
-        $engine->addRule('ь', 'y');
-        $engine->addRule('Ъ', 'A');
-        $engine->addRule('Щ', 'SHT');
-        return $engine;
-    }
-
-    use Sluggable;
 
     /**
      * Return the sluggable configuration array for this model.

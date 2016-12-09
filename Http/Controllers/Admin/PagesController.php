@@ -118,10 +118,8 @@ class PagesController extends BaseAdministrationController {
      */
     public function store(Request $request) {
         $page = new Pages();
-        $requestData = $request->all();
-        if ($page->validate($requestData)) {
-
-            $page->fill($requestData);
+        if ($page->validate($request->all())) {
+            $page->fill($request->all());
             $page->save();
 
             return \Redirect::route(Administration::routeName('pages.index'));
@@ -183,27 +181,17 @@ class PagesController extends BaseAdministrationController {
      */
     public function update(Request $request, $id) {
         $page = Pages::where('id', $id)->first();
-        $requestData = $request->all();
-        if ($page->validate($requestData)) {
-            $page->fill($requestData);
-            if (empty($request->visible)) {
-                $page->visible = '0';
-            } else {
-                $page->visible = '1';
-            }
-            if (empty($request->show_media)) {
-                $page->show_media = '0';
-            } else {
-                $page->show_media = '1';
-            }
+
+        if ($page->validate($request->all())) {
+            $page->fill($request->all());
+
             $page->save();
             return \Redirect::route(Administration::routeName('pages.index'));
 
         } else {
-            $validation = $page->errors();
             return \Redirect::route(Administration::routeName('pages.create'))
                 ->withInput()
-                ->withErrors($validation);
+                ->withErrors($page->getValidationErrors());
         }
     }
 

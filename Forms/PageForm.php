@@ -39,11 +39,6 @@ class PageForm extends AdminForm {
             'checked' => @$this->model->show_media,
         ]);
 
-        $this->add('date', 'datetime_picker', [
-            'label' => 'date',
-            'value' => ''
-        ]);
-
         $this->add('position', 'choice', [
             'label' => trans('pages::admin.position'),
             'choices' => [
