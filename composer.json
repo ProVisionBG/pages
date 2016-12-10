@@ -23,9 +23,11 @@
   "require": {
     "provision/administration": "~0.3.0 || dev-master"
   },
-  "autoload": {
-    "psr-4": {
-      "App\\Modules\\Pages\\": "/"
+  "extra": {
+    "installer-paths": {
+      "app/Modules/Pages": [
+        "provision/pages"
+      ]
     }
   }
 }
