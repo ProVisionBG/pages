@@ -21,7 +21,7 @@
   "homepage": "http://provision.bg",
   "type": "library",
   "require": {
-    "provision/administration": "~0.3.0"
+    "provision/administration": "~0.3.0 || dev-master"
   },
   "autoload": {
     "psr-4": {
