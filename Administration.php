@@ -1,12 +1,12 @@
 <?php
-namespace App\Modules\Pages;
+namespace ProVision\Pages;
 
 use ProVision\Administration\Contracts\Module;
 
 class Administration implements Module {
 
     public function routes($module) {
-        \Route::resource('pages', 'App\Modules\Pages\Http\Controllers\Admin\PagesController');
+        \Route::resource('pages', 'ProVision\Pages\Http\Controllers\Admin\PagesController');
     }
 
     public function dashboard($module) {
@@ -18,7 +18,7 @@ class Administration implements Module {
         $moduleMenu = \Administration::getMenuInstance()->add(trans('pages::admin.module_name'), [
             'route' => \Administration::routeName('pages.index')
         ])
-            ->data('order', $module['order'])
+            ->data('order', 9002)
             ->data('icon', 'file-text-o');
 
         //sub menu

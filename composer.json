@@ -19,15 +19,7 @@
     "source": "https://github.com/ProVisionBG/pages"
   },
   "homepage": "http://provision.bg",
-  "type": "library",
   "require": {
     "provision/administration": "~0.3.0 || dev-master"
-  },
-  "extra": {
-    "installer-paths": {
-      "app/Modules/Pages": [
-        "provision/pages"
-      ]
-    }
   }
 }

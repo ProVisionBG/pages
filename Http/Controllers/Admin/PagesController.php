@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Modules\Pages\Http\Controllers\Admin;
+namespace ProVision\Pages\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Modules\Pages\Models\Pages;
+use ProVision\Pages\Models\Pages;
 use Datatables;
 use Form;
 use Illuminate\Http\Request;
@@ -94,7 +94,7 @@ class PagesController extends BaseAdministrationController {
      * @return \Illuminate\Http\Response
      */
     public function create(FormBuilder $formBuilder) {
-        $form = $formBuilder->create(\App\Modules\Pages\Forms\PageForm::class, [
+        $form = $formBuilder->create(\ProVision\Pages\Forms\PageForm::class, [
                 'method' => 'POST',
                 'url' => Administration::route('pages.store'),
                 'role' => 'form',
@@ -151,7 +151,7 @@ class PagesController extends BaseAdministrationController {
         $page = Pages::where('id', $id)->first();
 
         if (!empty($page)) {
-            $form = $formBuilder->create(\App\Modules\Pages\Forms\PageForm::class, [
+            $form = $formBuilder->create(\ProVision\Pages\Forms\PageForm::class, [
                     'method' => 'PUT',
                     'url' => Administration::route('pages.update', $page->id),
                     'model' => $page

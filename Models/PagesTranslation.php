@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Pages\Models;
+namespace ProVision\Pages\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use ProVision\Administration\AdminModelTranslations;

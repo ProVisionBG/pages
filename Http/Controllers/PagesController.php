@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modules\Pages\Http\Controllers;
+namespace ProVision\Pages\Http\Controllers;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Requests;
-use App\Modules\Pages\Models\Pages;
+use ProVision\Pages\Models\Pages;
 use Illuminate\Http\Request;
 use ProVision\Administration\Facades\Administration;
 

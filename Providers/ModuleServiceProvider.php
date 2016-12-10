@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Modules\Pages\Providers;
+namespace ProVision\Pages\Providers;
 
 use Caffeinated\Modules\Support\ServiceProvider;
+use ProVision\Pages\Administration;
 
-class ModuleServiceProvider extends ServiceProvider
-{
+class ModuleServiceProvider extends ServiceProvider {
     /**
      * Bootstrap the module services.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/Lang', 'pages');
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'pages');
+        \ProVision\Administration\Administration::bootModule('pages', Administration::class);
     }
 
     /**
@@ -22,8 +22,7 @@ class ModuleServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-        $this->app->register(RouteServiceProvider::class);
+    public function register() {
+        //$this->app->register(RouteServiceProvider::class);
     }
 }

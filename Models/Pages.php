@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Pages\Models;
+namespace ProVision\Pages\Models;
 
 use Dimsav\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Modules\Pages\Providers;
+namespace ProVision\Pages\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
-class RouteServiceProvider extends ServiceProvider
-{
+class RouteServiceProvider extends ServiceProvider {
     /**
      * This namespace is applied to your controller routes.
      *
@@ -14,15 +13,14 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Modules\Pages\Http\Controllers';
+    protected $namespace = 'ProVision\Pages\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         //
 
         parent::boot();
@@ -33,8 +31,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function map()
-    {
+    public function map() {
         $this->mapWebRoutes();
 
         $this->mapApiRoutes();
@@ -49,13 +46,13 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapWebRoutes()
-    {
+    protected function mapWebRoutes() {
         Route::group([
             'middleware' => 'web',
-            'namespace'  => $this->namespace,
+            'namespace' => $this->namespace,
         ], function ($router) {
-            require module_path('pages', 'Routes/web.php');
+            //require module_path('pages', 'Routes/web.php');
+            require_once __DIR__.'/../Routes/web.php';
         });
     }
 
@@ -66,14 +63,14 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapApiRoutes()
-    {
+    protected function mapApiRoutes() {
         Route::group([
             'middleware' => 'api',
-            'namespace'  => $this->namespace,
-            'prefix'     => 'api',
+            'namespace' => $this->namespace,
+            'prefix' => 'api',
         ], function ($router) {
-            require module_path('pages', 'Routes/api.php');
+            //require module_path('pages', 'Routes/api.php');
+            require_once __DIR__.'/../Routes/api.php';
         });
     }
 }

@@ -1,7 +1,7 @@
 <?php
-namespace App\Modules\Pages\Forms;
+namespace ProVision\Pages\Forms;
 
-use App\Modules\Pages\Models\Pages;
+use ProVision\Pages\Models\Pages;
 use ProVision\Administration\Forms\AdminForm;
 
 class PageForm extends AdminForm {
