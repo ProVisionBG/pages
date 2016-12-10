@@ -13,8 +13,19 @@ class ModuleServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/Lang', 'pages');
+
+        $this->publishes([
+            __DIR__ . '/../Resources/Lang' => resource_path('lang/vendor/provision/pages'),
+        ], 'lang');
+
         $this->loadViewsFrom(__DIR__ . '/../Resources/Views', 'pages');
+
+        $this->publishes([
+            __DIR__ . '/../Resources/Views' => resource_path('views/vendor/provision/pages'),
+        ], 'views');
+
         \ProVision\Administration\Administration::bootModule('pages', Administration::class);
+
     }
 
     /**
