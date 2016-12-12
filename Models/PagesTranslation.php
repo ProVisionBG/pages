@@ -4,10 +4,12 @@ namespace ProVision\Pages\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 use ProVision\Administration\AdminModelTranslations;
+use ProVision\Administration\Traits\RevisionableTrait;
 
-class PagesTranslation extends AdminModelTranslations {
+class PagesTranslation extends AdminModelTranslations
+{
 
-    use Sluggable;
+    use Sluggable, RevisionableTrait;
 
     public $timestamps = false;
 
@@ -26,7 +28,8 @@ class PagesTranslation extends AdminModelTranslations {
      *
      * @return array
      */
-    public function sluggable() {
+    public function sluggable()
+    {
         return [
             'slug' => [
                 'source' => 'title'

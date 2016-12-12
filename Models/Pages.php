@@ -7,10 +7,12 @@ use Kalnoy\Nestedset\NodeTrait;
 use ProVision\Administration\AdminModel;
 use ProVision\Administration\Facades\Administration;
 use ProVision\Administration\Traits\MediaTrait;
+use ProVision\Administration\Traits\RevisionableTrait;
 use ProVision\Administration\Traits\ValidationTrait;
 
-class Pages extends AdminModel {
-    use NodeTrait, MediaTrait, ValidationTrait, Translatable;
+class Pages extends AdminModel
+{
+    use NodeTrait, MediaTrait, ValidationTrait, Translatable, RevisionableTrait;
 
     /**
      * @var array
@@ -49,7 +51,8 @@ class Pages extends AdminModel {
         'show_media' => 'boolean'
     ];
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         foreach (Administration::getLanguages() as $key => $lang) {
@@ -65,7 +68,8 @@ class Pages extends AdminModel {
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeActive($query) {
+    public function scopeActive($query)
+    {
         return $query->where('pages.visible', 1);
     }
 }

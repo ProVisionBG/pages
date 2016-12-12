@@ -18,12 +18,14 @@ class Administration implements Module {
         $moduleMenu = \Administration::getMenuInstance()->add(trans('pages::admin.module_name'), [
             'route' => \Administration::routeName('pages.index')
         ])
-            ->data('order', 9002)
+            ->data('order', 1001)
             ->data('icon', 'file-text-o');
 
         //sub menu
-        $moduleMenu->add(trans('pages::admin.list'), ['route' => \Administration::routeName('pages.index')])->data('icon', 'list');
-        $moduleMenu->add(trans('pages::admin.add'), ['route' => \Administration::routeName('pages.create')])->data('icon', 'plus');
+        $moduleMenu->add(trans('pages::admin.list'), ['route' => \Administration::routeName('pages.index')])
+            ->data('icon', 'list');
+        $moduleMenu->add(trans('pages::admin.add'), ['route' => \Administration::routeName('pages.create')])
+            ->data('icon', 'plus');
     }
 
 
