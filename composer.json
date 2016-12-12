@@ -21,5 +21,18 @@
   "homepage": "http://provision.bg",
   "require": {
     "provision/administration": "~0.3.0 || dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "ProVision\\Pages\\": "."
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "ProVision\\Pages\\": "."
+    }
   }
 }
