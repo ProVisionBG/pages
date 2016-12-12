@@ -1,14 +1,19 @@
 <?php
 
+/*
+ * ProVision Administration, http://ProVision.bg
+ * Author: Venelin Iliev, http://veneliniliev.com
+ */
+
 namespace ProVision\Pages\Models;
 
-use Dimsav\Translatable\Translatable;
 use Kalnoy\Nestedset\NodeTrait;
+use Dimsav\Translatable\Translatable;
 use ProVision\Administration\AdminModel;
-use ProVision\Administration\Facades\Administration;
 use ProVision\Administration\Traits\MediaTrait;
-use ProVision\Administration\Traits\RevisionableTrait;
+use ProVision\Administration\Facades\Administration;
 use ProVision\Administration\Traits\ValidationTrait;
+use ProVision\Administration\Traits\RevisionableTrait;
 
 class Pages extends AdminModel
 {
@@ -23,7 +28,7 @@ class Pages extends AdminModel
         'meta_title',
         'meta_description',
         'meta_keywords',
-        'slug'
+        'slug',
     ];
 
     /**
@@ -38,7 +43,7 @@ class Pages extends AdminModel
         'parent_id',
         'visible',
         'position',
-        'show_media'
+        'show_media',
     ];
     /**
      * The attributes that should be casted to native types.
@@ -48,7 +53,7 @@ class Pages extends AdminModel
     protected $casts = [
         'position' => 'array',
         'visible' => 'boolean',
-        'show_media' => 'boolean'
+        'show_media' => 'boolean',
     ];
 
     public function __construct()
@@ -57,8 +62,8 @@ class Pages extends AdminModel
 
         foreach (Administration::getLanguages() as $key => $lang) {
             $this->setValidationRules([
-                $key . '.title' => 'required',
-                $key . '.description' => 'required'
+                $key.'.title' => 'required',
+                $key.'.description' => 'required',
             ]);
         }
     }

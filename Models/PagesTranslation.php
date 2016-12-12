@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * ProVision Administration, http://ProVision.bg
+ * Author: Venelin Iliev, http://veneliniliev.com
+ */
+
 namespace ProVision\Pages\Models;
 
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -8,7 +13,6 @@ use ProVision\Administration\Traits\RevisionableTrait;
 
 class PagesTranslation extends AdminModelTranslations
 {
-
     use Sluggable, RevisionableTrait;
 
     public $timestamps = false;
@@ -19,9 +23,8 @@ class PagesTranslation extends AdminModelTranslations
         'meta_title',
         'meta_description',
         'meta_keywords',
-        'slug'
+        'slug',
     ];
-
 
     /**
      * Return the sluggable configuration array for this model.
@@ -32,9 +35,8 @@ class PagesTranslation extends AdminModelTranslations
     {
         return [
             'slug' => [
-                'source' => 'title'
-            ]
+                'source' => 'title',
+            ],
         ];
     }
-
 }

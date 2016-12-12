@@ -1,4 +1,10 @@
 <?php
+
+/*
+ * ProVision Administration, http://ProVision.bg
+ * Author: Venelin Iliev, http://veneliniliev.com
+ */
+
 return [
     'module_name' => 'Страници',
     'add' => 'Добави',
@@ -18,5 +24,5 @@ return [
     'create' => 'Създаване на нова страница',
     'select' => '== Избери ==',
     'edit' => 'Редакция',
-    'media' => 'Покажи медията'
+    'media' => 'Покажи медията',
 ];

@@ -1,11 +1,15 @@
 <?php
 
+/*
+ * ProVision Administration, http://ProVision.bg
+ * Author: Venelin Iliev, http://veneliniliev.com
+ */
+
 namespace ProVision\Pages\Http\Controllers;
 
-use App\Http\Controllers\BaseController;
-use App\Http\Requests;
-use ProVision\Pages\Models\Pages;
 use Illuminate\Http\Request;
+use ProVision\Pages\Models\Pages;
+use App\Http\Controllers\BaseController;
 use ProVision\Administration\Facades\Administration;
 
 class PagesController extends BaseController
@@ -60,13 +64,14 @@ class PagesController extends BaseController
             return back();
         }
       //  dd($page->media);
-        if (!$page->media->isEmpty()) {
-            $image = asset($page->media[0]->path . $page->media[0]->file);
+        if (! $page->media->isEmpty()) {
+            $image = asset($page->media[0]->path.$page->media[0]->file);
         } else {
             $image = '';
         }
 
         $this->setMeta($page->title, $page->meta_description, $page->meta_keyword, $image);
+
         return view('pages::show', compact('page'));
     }
 

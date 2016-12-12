@@ -1,16 +1,22 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+/*
+ * ProVision Administration, http://ProVision.bg
+ * Author: Venelin Iliev, http://veneliniliev.com
+ */
+
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreatePagesTable extends Migration {
-
+class CreatePagesTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
+    public function up()
+    {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent_id')->unsigned()->nullable()->default(null);
@@ -36,12 +42,12 @@ class CreatePagesTable extends Migration {
 
             $table->unique([
                 'pages_id',
-                'locale'
+                'locale',
             ]);
 
             $table->unique([
                 'pages_id',
-                'slug'
+                'slug',
             ]);
 
             $table->foreign('pages_id')->references('id')->on('pages')->onDelete('cascade');
@@ -53,11 +59,11 @@ class CreatePagesTable extends Migration {
      *
      * @return void
      */
-    public function down() {
+    public function down()
+    {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::drop('pages');
         Schema::drop('pages_translations');
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
-
 }
