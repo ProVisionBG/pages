@@ -35,13 +35,13 @@ class PageForm extends AdminForm
         $this->addSeoFields();
 
         $this->add('visible', 'checkbox', [
-            'label' => trans('pages::admin.active'),
+            'label' => trans('pages::admin.visible'),
             'value' => 1,
             'checked' => @$this->model->visible,
         ]);
 
         $this->add('show_media', 'checkbox', [
-            'label' => trans('pages::admin.media'),
+            'label' => trans('pages::admin.show_media'),
             'value' => 1,
             'checked' => @$this->model->show_media,
         ]);

@@ -14,8 +14,7 @@ return [
     'action' => 'Действие',
     'description' => 'Описание',
     'status' => 'Статус',
-    'active' => 'Активен',
-    'inactive' => 'Неактивен',
+    'visible' => 'Видима',
     'position' => 'Позиция',
     'header-top' => 'Горе',
     'footer-bottom' => 'Долу',
@@ -24,5 +23,5 @@ return [
     'create' => 'Създаване на нова страница',
     'select' => '== Избери ==',
     'edit' => 'Редакция',
-    'media' => 'Покажи медията',
+    'show_media' => 'Покажи медията',
 ];

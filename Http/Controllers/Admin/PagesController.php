@@ -7,13 +7,13 @@
 
 namespace ProVision\Pages\Http\Controllers\Admin;
 
-use Form;
 use Datatables;
+use Form;
 use Illuminate\Http\Request;
-use ProVision\Pages\Models\Pages;
 use Kris\LaravelFormBuilder\FormBuilder;
 use ProVision\Administration\Facades\Administration;
 use ProVision\Administration\Http\Controllers\BaseAdministrationController;
+use ProVision\Pages\Models\Pages;
 
 class PagesController extends BaseAdministrationController
 {
@@ -33,18 +33,18 @@ class PagesController extends BaseAdministrationController
             $pages = Pages::withTranslation()->defaultOrder();
             $datatables = Datatables::of($pages)
                 ->editColumn('title', function ($page) {
-                    return $page->title.' <a href="'.Administration::route('pages.index', ['parent_id' => $page->id]).'"><i class="fa fa-share" aria-hidden="true"></i></a>';
+                    return $page->title . ' <a href="' . Administration::route('pages.index', ['parent_id' => $page->id]) . '"><i class="fa fa-share" aria-hidden="true"></i></a>';
                 })
                 ->addColumn('action', function ($page) {
                     $actions = '';
-                    if (! empty($page->deleted_at)) {
+                    if (!empty($page->deleted_at)) {
                         //restore button
                     } else {
                         $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('pages.destroy', $page->id));
                     }
-                    $actions .= Form::adminMediaButton($page, 'pages').Form::adminOrderButton($page);
+                    $actions .= Form::adminMediaButton($page, 'pages') . Form::adminOrderButton($page);
 
-                    return Form::adminEditButton(trans('administration::index.edit'), Administration::route('pages.edit', $page->id)).$actions;
+                    return Form::adminEditButton(trans('administration::index.edit'), Administration::route('pages.edit', $page->id)) . $actions;
                 })
                 ->addColumn('visible', function ($page) {
                     return Form::adminSwitchButton('visible', $page);
@@ -82,11 +82,11 @@ class PagesController extends BaseAdministrationController
             ])->addColumn([
                 'data' => 'visible',
                 'name' => 'visible',
-                'title' => 'visible',
+                'title' => trans('pages::admin.visible'),
             ])->addColumn([
                 'data' => 'show_media',
                 'name' => 'show_media',
-                'title' => 'show_media',
+                'title' => trans('pages::admin.show_media'),
             ])->addColumn([
                 'data' => 'created_at',
                 'name' => 'created_at',
@@ -162,7 +162,7 @@ class PagesController extends BaseAdministrationController
     {
         $page = Pages::where('id', $id)->first();
 
-        if (! empty($page)) {
+        if (!empty($page)) {
             $form = $formBuilder->create(\ProVision\Pages\Forms\PageForm::class, [
                     'method' => 'PUT',
                     'url' => Administration::route('pages.update', $page->id),
@@ -170,7 +170,7 @@ class PagesController extends BaseAdministrationController
                 ]
             );
 
-            Administration::setTitle(trans('pages::admin.edit').' - '.$page->title);
+            Administration::setTitle(trans('pages::admin.edit') . ' - ' . $page->title);
 
             \Breadcrumbs::register('admin_final', function ($breadcrumbs) use ($page) {
                 $breadcrumbs->parent('admin_home');
