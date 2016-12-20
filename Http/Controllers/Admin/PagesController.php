@@ -131,6 +131,10 @@ class PagesController extends BaseAdministrationController
         $page = new Pages();
         if ($page->validate($request->all())) {
             $page->fill($request->all());
+
+            $page->visible = $request->input('visible', false);
+            $page->show_media = $request->input('show_media', false);
+
             $page->save();
 
             return \Redirect::route(Administration::routeName('pages.index'));

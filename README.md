@@ -1,6 +1,6 @@
 # ProVision/Pages Module
 
-ProVision Administration Pages module
+[ProVision Administration](https://github.com/ProVisionBG/administration) Pages module
 
 # Installation
 
