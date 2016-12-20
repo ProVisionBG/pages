@@ -9,3 +9,7 @@ ProVision Administration Pages module
 then include provider to config/app.php
 
  `\ProVision\Pages\Providers\ModuleServiceProvider::class`
+
+and run migration
+
+`php artisan admin:migrate`
