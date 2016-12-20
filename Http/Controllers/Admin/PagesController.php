@@ -33,7 +33,7 @@ class PagesController extends BaseAdministrationController
             $pages = Pages::withTranslation()->defaultOrder();
             $datatables = Datatables::of($pages)
                 ->editColumn('title', function ($page) {
-                    return $page->title . ' <a href="' . Administration::route('pages.index', ['parent_id' => $page->id]) . '" title="'.trans('pages::admin.view_all_sub').'"><i class="fa fa-share" aria-hidden="true"></i></a>';
+                    return $page->title . ' <a href="' . Administration::route('pages.index', ['parent_id' => $page->id]) . '" title="' . trans('pages::admin.view_all_sub') . '"><i class="fa fa-share" aria-hidden="true"></i></a>';
                 })
                 ->addColumn('action', function ($page) {
                     $actions = '';
@@ -197,6 +197,9 @@ class PagesController extends BaseAdministrationController
 
         if ($page->validate($request->all())) {
             $page->fill($request->all());
+
+            $page->visible = $request->input('visible', false);
+            $page->show_media = $request->input('show_media', false);
 
             $page->save();
 
