@@ -20,7 +20,7 @@
   },
   "homepage": "http://provision.bg",
   "require": {
-    "provision/administration": "~0.3.0 || dev-master"
+    "provision/administration": "dev-master || v0.4.x-dev"
   },
   "autoload": {
     "psr-4": {

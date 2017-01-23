@@ -42,7 +42,7 @@ class PagesController extends BaseAdministrationController
                     } else {
                         $actions .= Form::adminDeleteButton(trans('administration::index.delete'), Administration::route('pages.destroy', $page->id));
                     }
-                    $actions .= Form::adminMediaButton($page, 'pages') . Form::adminOrderButton($page);
+                    $actions .= Form::mediaManager($page) . Form::adminOrderButton($page);
 
                     return Form::adminEditButton(trans('administration::index.edit'), Administration::route('pages.edit', $page->id)) . $actions;
                 })

@@ -23,17 +23,15 @@ class Administration implements Module
 
     public function menu($module)
     {
-        //root menu
-        $moduleMenu = \Administration::getMenuInstance()->add(trans('pages::admin.module_name'), [
+        \AdministrationMenu::addModule(trans('pages::admin.module_name'), [
             'route' => \Administration::routeName('pages.index'),
-        ])
-            ->data('order', 1001)
-            ->data('icon', 'file-text-o');
-
-        //sub menu
-        $moduleMenu->add(trans('pages::admin.list'), ['route' => \Administration::routeName('pages.index')])
-            ->data('icon', 'list');
-        $moduleMenu->add(trans('pages::admin.add'), ['route' => \Administration::routeName('pages.create')])
-            ->data('icon', 'plus');
+            'icon' => 'file-text-o'
+        ], function ($menu) {
+            $menu->addItem(trans('pages::admin.list'), [
+                'route' => \Administration::routeName('pages.index')
+            ])->addItem(trans('pages::admin.add'), [
+                'route' => \Administration::routeName('pages.create')
+            ]);
+        });
     }
 }
