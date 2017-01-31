@@ -14,10 +14,11 @@ use ProVision\Administration\Traits\MediaTrait;
 use ProVision\Administration\Facades\Administration;
 use ProVision\Administration\Traits\ValidationTrait;
 use ProVision\Administration\Traits\RevisionableTrait;
+use ProVision\MediaManager\Traits\MediaManagerTrait;
 
 class Pages extends AdminModel
 {
-    use NodeTrait, MediaTrait, ValidationTrait, Translatable, RevisionableTrait;
+    use NodeTrait, MediaManagerTrait, ValidationTrait, Translatable, RevisionableTrait;
 
     /**
      * @var array

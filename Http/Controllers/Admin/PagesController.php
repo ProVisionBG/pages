@@ -165,7 +165,6 @@ class PagesController extends BaseAdministrationController
     public function edit($id, FormBuilder $formBuilder)
     {
         $page = Pages::where('id', $id)->first();
-
         if (!empty($page)) {
             $form = $formBuilder->create(\ProVision\Pages\Forms\PageForm::class, [
                     'method' => 'PUT',
