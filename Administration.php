@@ -7,6 +7,7 @@
 
 namespace ProVision\Pages;
 
+use Kris\LaravelFormBuilder\Form;
 use ProVision\Administration\Contracts\Module;
 
 class Administration implements Module
@@ -33,5 +34,16 @@ class Administration implements Module
                 'route' => \Administration::routeName('pages.create')
             ]);
         });
+    }
+
+    /**
+     * Add settings in administration panel
+     * @param $module
+     * @param Form $form
+     * @return mixed
+     */
+    public function settings($module, Form $form)
+    {
+        // TODO: Implement settings() method.
     }
 }
